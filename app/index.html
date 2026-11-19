@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Neon Coast Cover Studio</title>
+  <meta name="description" content="Turn any photo into a GTA-style cover. Offline — your photos never leave this machine.">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <header class="brand">
+    <h1>Neon Coast Cover Studio</h1>
+    <p class="tagline">Turn any photo into a GTA-style cover. Offline — your photos never leave this machine.</p>
+  </header>
+
+  <div class="app">
+    <aside class="controls" aria-label="Cover controls">
+      <section class="panel" aria-labelledby="photos-heading">
+        <h2 id="photos-heading">Photos</h2>
+        <div id="panelList"></div>
+      </section>
+
+      <section class="panel" aria-labelledby="layout-heading">
+        <h2 id="layout-heading">Layout</h2>
+        <div id="layoutPicker" class="picker" role="group" aria-label="Layout"></div>
+      </section>
+
+      <section class="panel" aria-labelledby="grade-heading">
+        <h2 id="grade-heading">Grade</h2>
+        <div id="gradePicker" class="picker" role="group" aria-label="Colour grade"></div>
+      </section>
+
+      <section class="panel" aria-labelledby="caption-heading">
+        <h2 id="caption-heading">Caption</h2>
+        <label>
+          Title
+          <input id="titleInput" type="text" maxlength="40" value="Neon Coast">
+        </label>
+        <label>
+          Subtitle
+          <input id="subtitleInput" type="text" maxlength="40" value="Vice City nights">
+        </label>
+        <label>
+          Title colour
+          <select id="titleColor">
+            <option value="white">White</option>
+            <option value="sunset">Sunset gradient</option>
+            <option value="neon">Neon pink</option>
+            <option value="gold">Gold</option>
+          </select>
+        </label>
+        <label>
+          Title position
+          <select id="titlePos">
+            <option value="bottom">Bottom</option>
+            <option value="top">Top</option>
+          </select>
+        </label>
+      </section>
+
+      <section class="panel" aria-labelledby="finish-heading">
+        <h2 id="finish-heading">Finish</h2>
+        <label class="check">
+          <input id="grainToggle" type="checkbox" checked>
+          Film grain
+        </label>
+        <label class="check">
+          <input id="vignetteToggle" type="checkbox" checked>
+          Vignette
+        </label>
+      </section>
+
+      <section class="panel" aria-labelledby="export-heading">
+        <h2 id="export-heading">Export</h2>
+        <label>
+          Size
+          <select id="exportSize">
+            <option value="1080x1080">1080 × 1080 (square)</option>
+            <option value="1080x1350">1080 × 1350 (portrait)</option>
+            <option value="1920x1080">1920 × 1080 (wide)</option>
+          </select>
+        </label>
+        <button id="exportBtn" type="button">Export PNG</button>
+        <p id="status" role="status"></p>
+      </section>
+    </aside>
+
+    <main class="stage" aria-label="Cover preview">
+      <div id="dropzone">
+        <canvas id="cover" width="1080" height="1080" aria-label="The cover"></canvas>
+        <p class="hint">Drop photos here, or use the panel controls. Drag a panel to move its photo, scroll to zoom.</p>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
